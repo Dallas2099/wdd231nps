@@ -16,3 +16,6 @@ Use this as a starting point to complete the WDD 231 personal activity. We will 
 ## Other commands
 
 - `npm run build` to build final files when you are ready to turn in.
+
+## Dallas Allen WDD 231 Netlify NPS URL
+- https://app.netlify.com/projects/gilded-rugelach-dab690/deploys/68cc852e2a35f537333e9368
