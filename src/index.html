@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
+    <title>National Park</title>
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="js/main.js"></script>
   </head>
@@ -11,7 +11,7 @@
     <p class="disclaimer">
       This is not a real NPS website. It is an educational exercise. If you
       landed here by accident, to find the real website visit
-      <a href="parkUrl">[park name]</a>
+      <a data-element="park-link" href="#">Yellowstone National Park</a>
     </p>
     <div class="skip-links" aria-label="short-cut links" role="navigation">
       <ul>
@@ -42,54 +42,203 @@
       </ul>
     </div>
     <header>
-      <section class="global-header">
-        <a href="index.html" class="site-title"
-          ><span class="logo" role="presentation"></span>
-          <span>National Park Service</span></a
-        >
-        <div class="global-header__right">
-          <a class="search-icon" href="#park-footer">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#search"></use>
-            </svg>
-            <span class="visually-hidden">Search</span>
-          </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
-          </button>
-        </div>
-        <nav class="global-nav">
-          <h2 class="global-nav__section-heading">Explore this Park</h2>
-          <ul class="global-nav__list">
-            <li>
-              <div class="global-nav__split-button">
-                <a href="#">Plan Your Visit</a>
-                <button class="global-nav__split-button__toggle">
-                  <span class="visually-hidden"
-                    >Toggle submenu for Plan Your Visit</span
+      <section class="global-header" aria-label="National Park Service">
+        <div class="global-header__bar">
+              <a href="https://www.nps.gov/index.htm" class="site-title">
+                <span class="logo" aria-hidden="true"></span>
+                <span class="site-title__text">
+                  <span class="site-title__primary">National Park Service</span>
+                  <span class="site-title__secondary"
+                    >U.S. Department of the Interior</span
                   >
-                  <svg class="icon" role="presentation" focusable="false">
-                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
-                  </svg>
-                </button>
-              </div>
+                </span>
+              </a>
+          <div class="global-header__actions">
+            <button
+              type="button"
+              class="global-header__search"
+              aria-label="Open National Park Service search"
+            >
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use xlink:href="/images/sprite.symbol.svg#search"></use>
+              </svg>
+            </button>
+            <a
+              class="global-header__accessibility"
+              href="#main"
+              aria-label="Skip to the main content"
+            >
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use
+                  xlink:href="/images/sprite.symbol.svg#accessibility-info"
+                ></use>
+              </svg>
+            </a>
+            <button
+              id="global-nav-toggle"
+              class="global-header__menu"
+              type="button"
+              aria-expanded="false"
+              aria-controls="global-nav"
+            >
+              <svg class="icon" aria-hidden="true" focusable="false">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              Menu
+            </button>
+          </div>
+        </div>
+        <nav
+          id="global-nav"
+          class="global-nav"
+          aria-label="National Park Service navigation"
+        >
+          <h2 class="global-nav__section-heading">
+            Explore the National Park Service
+          </h2>
+          <ul class="global-nav__list">
+            <li class="global-nav__item">
+              <a href="#">Find a Park</a>
+            </li>
+            <li class="global-nav__item">
+              <a href="#">Plan Your Visit</a>
+            </li>
+            <li class="global-nav__item">
+              <a href="#">Learn &amp; Explore</a>
+            </li>
+            <li class="global-nav__item">
+              <a href="#">Get Involved</a>
+            </li>
+            <li class="global-nav__item">
+              <a href="#">About Us</a>
             </li>
           </ul>
         </nav>
       </section>
-      <section id="park-header">
-        <a href="#">
-          <span>Info</span>
-          <svg class="icon" role="presentation" focusable="false">
-            <use xlink:href="/images/sprite.symbol.svg#info"></use>
-          </svg>
-        </a>
-        <svg class="icon" role="presentation" focusable="false">
-          <use xlink:href="/images/sprite.symbol.svg#alert"></use>
-        </svg>
+      <section
+        id="park-header"
+        class="park-header"
+        aria-label="Park header"
+      >
+        <nav
+          class="park-header__utility"
+          aria-label="Park quick links"
+          role="navigation"
+        >
+          <a class="park-header__utility-link" href="#park-info">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#info"></use>
+            </svg>
+            <span>Info</span>
+          </a>
+          <a class="park-header__utility-link" href="#park-alerts">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#alert"></use>
+            </svg>
+            <span>Alerts</span>
+          </a>
+          <a class="park-header__utility-link" href="#park-maps">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use
+                xlink:href="/images/sprite.symbol.svg#heading-icon_map-pin"
+              ></use>
+            </svg>
+            <span>Maps</span>
+          </a>
+          <a class="park-header__utility-link" href="#park-calendar">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#calendar"></use>
+            </svg>
+            <span>Calendar</span>
+          </a>
+          <a class="park-header__utility-link" href="#park-fees">
+            <svg class="icon" aria-hidden="true" focusable="false">
+              <use xlink:href="/images/sprite.symbol.svg#fee-30"></use>
+            </svg>
+            <span>Fees</span>
+          </a>
+        </nav>
+        <div class="hero-banner">
+          <figure class="hero-banner__media">
+            <img
+              class="hero-banner__image"
+              data-element="hero-image"
+              src=""
+              alt=""
+            />
+            <figcaption class="hero-banner__caption">
+              <span class="hero-banner__credit-label">NPS Photo:</span>
+              <span class="hero-banner__credit" data-element="hero-credit"></span>
+            </figcaption>
+          </figure>
+          <div class="hero-banner__content">
+            <nav class="hero-banner__breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><a href="https://www.nps.gov/index.htm">NPS.gov</a></li>
+                <li>
+                  <a data-element="state-link" href="#" data-state=""></a>
+                </li>
+                <li aria-current="page" data-element="park-name">Park Name</li>
+              </ol>
+            </nav>
+            <div class="hero-banner__heading">
+              <a
+                data-element="hero-title"
+                href="#"
+                class="hero-banner__title"
+              ></a>
+              <p class="hero-banner__subtitle">
+                <span data-element="hero-designation"></span>
+                <span data-element="hero-states"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <nav id="local-nav" class="park-subnav" aria-label="Park navigation">
+          <h2 class="park-subnav__heading">Explore This Park</h2>
+          <ul class="park-subnav__list">
+            <li class="park-subnav__item">
+              <a href="#plan-your-visit">
+                <span>Plan Your Visit</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="park-subnav__item">
+              <a href="#learn-and-explore">
+                <span>Learn &amp; Explore</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="park-subnav__item">
+              <a href="#places-to-go">
+                <span>Places to Go</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="park-subnav__item">
+              <a href="#things-to-do">
+                <span>Things to Do</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="park-subnav__item">
+              <a href="#park-history">
+                <span>History &amp; Culture</span>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </section>
     </header>
     <main id="main"></main>
