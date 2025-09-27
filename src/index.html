@@ -171,28 +171,7 @@
               <span class="hero-banner__credit" data-element="hero-credit"></span>
             </figcaption>
           </figure>
-          <div class="hero-banner__content">
-            <nav class="hero-banner__breadcrumb" aria-label="Breadcrumb">
-              <ol>
-                <li><a href="https://www.nps.gov/index.htm">NPS.gov</a></li>
-                <li>
-                  <a data-element="state-link" href="#" data-state=""></a>
-                </li>
-                <li aria-current="page" data-element="park-name">Park Name</li>
-              </ol>
-            </nav>
-            <div class="hero-banner__heading">
-              <a
-                data-element="hero-title"
-                href="#"
-                class="hero-banner__title"
-              ></a>
-              <p class="hero-banner__subtitle">
-                <span data-element="hero-designation"></span>
-                <span data-element="hero-states"></span>
-              </p>
-            </div>
-          </div>
+        <div class="hero-banner__content"></div>
         </div>
         <nav id="local-nav" class="park-subnav" aria-label="Park navigation">
           <h2 class="park-subnav__heading">Explore This Park</h2>
@@ -241,7 +220,10 @@
         </nav>
       </section>
     </header>
-    <main id="main"></main>
-    <footer id="park-footer"></footer>
+    <main id="main">
+      <section class="intro" aria-label="Park introduction"></section>
+      <section class="info" aria-label="Park visitor information"></section>
+    </main>
+    <footer id="park-footer" class="park-footer"></footer>
   </body>
 </html>

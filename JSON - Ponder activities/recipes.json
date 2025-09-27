@@ -1,0 +1,59 @@
+{
+  "recipes": [
+    {
+      "name": "Chocolate Chip Cookies",
+      "description": "Chewy chocolate chip cookies with coconut and a blend of white and whole wheat flour.",
+      "ingredients": [
+        {
+          "quantity": "1 lb",
+          "name": "butter",
+          "preparation": "softened"
+        },
+        {
+          "quantity": "1 1/2 cups",
+          "name": "brown sugar"
+        },
+        {
+          "quantity": "1 cup",
+          "name": "white sugar"
+        },
+        {
+          "quantity": "3",
+          "name": "eggs"
+        },
+        {
+          "quantity": "2 teaspoons",
+          "name": "vanilla extract"
+        },
+        {
+          "quantity": "1 1/2 teaspoons",
+          "name": "baking soda"
+        },
+        {
+          "quantity": "1/2 teaspoon",
+          "name": "salt"
+        },
+        {
+          "quantity": "5 cups",
+          "name": "flour",
+          "notes": "3 cups all-purpose, 2 cups whole wheat"
+        },
+        {
+          "quantity": "2 cups",
+          "name": "semi-sweet chocolate chips"
+        },
+        {
+          "quantity": "1-2 cups",
+          "name": "shredded coconut"
+        }
+      ],
+      "steps": [
+        "Cream the butter and sugars together until light and fluffy.",
+        "Beat in the eggs one at a time, then mix in the vanilla extract.",
+        "Stir in the salt, baking soda, and flour until just combined.",
+        "Fold in the chocolate chips and shredded coconut.",
+        "Bake 8-10 minutes at 350 F until the edges are lightly golden."
+      ]
+    }
+  ]
+}

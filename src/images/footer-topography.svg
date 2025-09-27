@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <pattern id="wave" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
+      <path d="M0 80c30-30 50-30 80 0s50 30 80 0" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round" />
+      <path d="M0 0c45 20 115 20 160 0" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6" stroke-linecap="round" />
+      <path d="M0 40c30-10 50-10 80 0s50 10 80 0" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linecap="round" />
+      <path d="M0 120c30 15 50 15 80 0s50-15 80 0" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="4" stroke-linecap="round" />
+    </pattern>
+  </defs>
+  <rect width="320" height="320" fill="url(#wave)" />
+</svg>
