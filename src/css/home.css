@@ -1,0 +1,56 @@
+main {
+  background-color: var(--bs-pampas);
+}
+
+.intro {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+}
+
+.intro__content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.intro__title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  color: var(--bs-grey-4);
+}
+
+.intro__description {
+  margin: 0;
+  color: var(--bs-grey-2);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.info {
+  background-color: var(--bs-white);
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 5rem;
+}
+
+.info__content {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.info__heading {
+  margin: 0 0 2rem;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  color: var(--bs-grey-4);
+}
+
+.info__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media (max-width: 720px) {
+  .intro {
+    padding: 2.25rem 1.25rem 2.5rem;
+  }
+}

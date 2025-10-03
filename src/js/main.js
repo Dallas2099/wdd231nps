@@ -1,8 +1,6 @@
-import { getParkData, parkInfoLinks } from "./parkService.mjs";
+import { getInfoLinks, getParkData } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
-
-const parkData = getParkData();
 
 function setParkIntro(data) {
   const introEl = document.querySelector(".intro");
@@ -20,7 +18,7 @@ function setParkInfoLinks(data) {
   const infoEl = document.querySelector(".info");
   if (!infoEl) return;
 
-  const cards = data.map(mediaCardTemplate).join("");
+  const cards = (Array.isArray(data) ? data : []).map(mediaCardTemplate).join("");
 
   infoEl.innerHTML = `
     <div class="info__content">
@@ -32,6 +30,17 @@ function setParkInfoLinks(data) {
   `;
 }
 
-setHeaderFooter(parkData);
-setParkIntro(parkData);
-setParkInfoLinks(parkInfoLinks);
+async function init() {
+  try {
+    const parkData = await getParkData();
+    const parkInfoLinks = getInfoLinks(parkData.images);
+
+    setHeaderFooter(parkData);
+    setParkIntro(parkData);
+    setParkInfoLinks(parkInfoLinks);
+  } catch (error) {
+    console.error("Unable to initialize park data", error);
+  }
+}
+
+init();

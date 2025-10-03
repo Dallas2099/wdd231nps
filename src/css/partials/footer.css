@@ -1,0 +1,78 @@
+.park-footer {
+  position: relative;
+  padding: clamp(2.75rem, 6vw, 4.5rem) 1.5rem 4rem;
+  color: var(--bs-white);
+  background-color: var(--bs-grey-4);
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.88),
+      rgba(0, 0, 0, 0.76)
+    ),
+    url("../images/footer-topography.svg");
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 320px;
+}
+
+.park-footer__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.park-footer__heading {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+
+.park-footer__content {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.park-footer__block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.park-footer__title {
+  margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.park-footer__address {
+  margin: 0;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.park-footer__address p {
+  margin: 0;
+}
+
+.park-footer__phone {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.park-footer a {
+  color: var(--bs-white);
+}
+
+.park-footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 720px) {
+  .park-footer {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+}
