@@ -1,3 +1,5 @@
+import spritePath from "../images/sprite.symbol.svg";
+
 function sanitize(text) {
   return text ?? "";
 }
@@ -108,5 +110,150 @@ export function footerTemplate(info) {
         </div>
       </div>
     </section>
+  `;
+}
+
+function formatDateToReadable(dateString = "") {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) return dateString;
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  }).format(date);
+}
+
+function normalizeAlertType(category = "") {
+  if (!category) return "information";
+
+  switch (category) {
+    case "Park Closure":
+      return "closure";
+    default:
+      return category.toLowerCase().replace(/\s+/g, "-");
+  }
+}
+
+export function alertTemplate(alert) {
+  const type = normalizeAlertType(alert?.category);
+  const title = sanitize(alert?.title);
+  const description = sanitize(alert?.description);
+  const lastIndexedDate = formatDateToReadable(alert?.lastIndexedDate);
+
+  return `
+    <li class="alert">
+      <svg class="icon alert__icon" focusable="false" aria-hidden="true">
+        <use xlink:href="${spritePath}#alert-${type}"></use>
+      </svg>
+      <div class="alert__content">
+        <h3 class="alert__title alert-${type}">${title}</h3>
+        ${description ? `<p class="alert__description">${description}</p>` : ""}
+        ${
+          lastIndexedDate
+            ? `<p class="alert__date">Updated ${lastIndexedDate}</p>`
+            : ""
+        }
+      </div>
+    </li>
+  `;
+}
+
+function getVisitorCenterStatus(status) {
+  const statusText = sanitize(status?.status) || "Status Unknown";
+  const modifier = statusText.toLowerCase().replace(/\s+/g, "-") || "unknown";
+  const message = sanitize(status?.message);
+
+  return { statusText, modifier, message };
+}
+
+function getSeasonText(operatingHours = []) {
+  const [first] = operatingHours || [];
+  if (!first) {
+    return "Seasonal dates vary";
+  }
+
+  const seasonalException =
+    first.exceptions?.find((item) =>
+      item?.name?.toLowerCase().includes("season")
+    ) || first.exceptions?.[0];
+
+  if (seasonalException?.startDate && seasonalException?.endDate) {
+    const start = formatDateToReadable(seasonalException.startDate);
+    const end = formatDateToReadable(seasonalException.endDate);
+    return `${start} – ${end}`;
+  }
+
+  if (first?.description) {
+    return first.description;
+  }
+
+  return "Open year-round";
+}
+
+function formatStandardHours(hours = {}) {
+  const entries = Object.entries(hours)
+    .filter(([, value]) => Boolean(value))
+    .map(([day, value]) => {
+      const label = day.charAt(0).toUpperCase() + day.slice(1);
+      return `<li><span>${label}</span><span>${value}</span></li>`;
+    });
+
+  if (!entries.length) return "";
+
+  return `<ul class="hours-list">${entries.join("")}</ul>`;
+}
+
+export function visitorCenterTemplate(center) {
+  const name = sanitize(center?.name);
+  const description = sanitize(center?.description);
+  const directions = sanitize(center?.directionsInfo);
+  const { statusText, modifier, message } = getVisitorCenterStatus(center?.operatingStatus);
+  const seasonText = getSeasonText(center?.operatingHours);
+  const standardHours = center?.operatingHours?.[0]?.standardHours || {};
+  const hoursList = formatStandardHours(standardHours);
+
+  return `
+    <details class="accordion" name="visitor-centers">
+      <summary class="accordion__summary">
+        <span class="accordion__title">${name}</span>
+        <span class="status-pill status-pill--${modifier}">${statusText}</span>
+      </summary>
+      <div class="accordion__body">
+        <p class="accordion__season">${seasonText}</p>
+        ${message ? `<p class="accordion__message">${message}</p>` : ""}
+        ${description ? `<p class="accordion__description">${description}</p>` : ""}
+        ${directions ? `<p class="accordion__directions">${directions}</p>` : ""}
+        ${
+          hoursList
+            ? `<div class="accordion__hours"><h4>Standard Hours</h4>${hoursList}</div>`
+            : ""
+        }
+      </div>
+    </details>
+  `;
+}
+
+export function activityTemplate(activity) {
+  const name = sanitize(activity?.name);
+  const url = sanitize(activity?.url);
+  const displayName = name || "Activity";
+  const lowerName = name ? name.toLowerCase() : "this activity";
+  const learnMoreUrl =
+    url || `https://www.nps.gov/search/?s=All&q=${encodeURIComponent(displayName)}`;
+
+  return `
+    <details class="accordion" name="activities">
+      <summary class="accordion__summary">
+        <span class="accordion__title">${displayName}</span>
+      </summary>
+      <div class="accordion__body">
+        <p class="accordion__description">
+          Discover opportunities for ${lowerName}. Learn more on the
+          <a href="${learnMoreUrl}">National Park Service website</a>.
+        </p>
+      </div>
+    </details>
   `;
 }

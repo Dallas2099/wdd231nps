@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>localStorage practice: ToDos</title>
+    <script src="./storage.js" defer></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 2rem auto;
+        max-width: 600px;
+        line-height: 1.5;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+      .user {
+        font-weight: 600;
+      }
+      .user-controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      .user-controls input {
+        max-width: 12rem;
+      }
+      main section {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      label {
+        white-space: nowrap;
+      }
+      .todos {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 300px;
+      }
+      .todos > li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid;
+        padding: 0.5em;
+        gap: 0.75rem;
+      }
+      .todos p {
+        margin: 0;
+      }
+      .todos span {
+        cursor: pointer;
+      }
+      .strike {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>ToDos</h1>
+        <p class="user">[user name here]</p>
+      </div>
+      <div class="user-controls">
+        <label for="userName">Enter Name</label>
+        <input name="userName" id="userName" placeholder="Enter your name" />
+        <button id="setUserButton">Save</button>
+      </div>
+    </header>
+    <main>
+      <section>
+        <label for="todo">Enter Task</label>
+        <input name="todo" id="todo" />
+        <button id="submitTask">Enter</button>
+      </section>
+      <ul id="todoList" class="todos"></ul>
+    </main>
+  </body>
+</html>

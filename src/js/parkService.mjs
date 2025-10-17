@@ -74,4 +74,14 @@ export function getInfoLinks(images = []) {
   });
 }
 
+export async function getAlertsData(parkCode = defaultParkCode) {
+  const alertData = await getJson(`alerts?parkCode=${parkCode}`);
+  return alertData.data || [];
+}
+
+export async function getVisitorCenterData(parkCode = defaultParkCode) {
+  const visitorCenterData = await getJson(`visitorcenters?parkCode=${parkCode}`);
+  return visitorCenterData.data || [];
+}
+
 export { baseUrl, getJson };

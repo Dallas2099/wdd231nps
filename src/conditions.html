@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>National Park</title>
-    <script type="module" src="js/main.js"></script>
+    <title>National Park - Current Conditions</title>
+    <script type="module" src="js/conditions.js"></script>
   </head>
   <body>
     <p class="disclaimer">
@@ -43,15 +43,15 @@
     <header>
       <section class="global-header" aria-label="National Park Service">
         <div class="global-header__bar">
-              <a href="https://www.nps.gov/index.htm" class="site-title">
-                <span class="logo" aria-hidden="true"></span>
-                <span class="site-title__text">
-                  <span class="site-title__primary">National Park Service</span>
-                  <span class="site-title__secondary"
-                    >U.S. Department of the Interior</span
-                  >
-                </span>
-              </a>
+          <a href="https://www.nps.gov/index.htm" class="site-title">
+            <span class="logo" aria-hidden="true"></span>
+            <span class="site-title__text">
+              <span class="site-title__primary">National Park Service</span>
+              <span class="site-title__secondary"
+                >U.S. Department of the Interior</span
+              >
+            </span>
+          </a>
           <div class="global-header__actions">
             <button
               type="button"
@@ -136,7 +136,7 @@
             </svg>
             <span>Alerts</span>
           </a>
-          <a class="park-header__utility-link" href="#park-maps">
+          <a class="park-header__utility-link" href="#local-nav">
             <svg class="icon" aria-hidden="true" focusable="false">
               <use
                 xlink:href="/images/sprite.symbol.svg#heading-icon_map-pin"
@@ -144,13 +144,13 @@
             </svg>
             <span>Maps</span>
           </a>
-          <a class="park-header__utility-link" href="#park-calendar">
+          <a class="park-header__utility-link" href="#main">
             <svg class="icon" aria-hidden="true" focusable="false">
               <use xlink:href="/images/sprite.symbol.svg#calendar"></use>
             </svg>
             <span>Calendar</span>
           </a>
-          <a class="park-header__utility-link" href="#park-fees">
+          <a class="park-header__utility-link" href="#main">
             <svg class="icon" aria-hidden="true" focusable="false">
               <use xlink:href="/images/sprite.symbol.svg#fee-30"></use>
             </svg>
@@ -170,13 +170,13 @@
               <span class="hero-banner__credit" data-element="hero-credit"></span>
             </figcaption>
           </figure>
-        <div class="hero-banner__content"></div>
+          <div class="hero-banner__content"></div>
         </div>
         <nav id="local-nav" class="park-subnav" aria-label="Park navigation">
           <h2 class="park-subnav__heading">Explore This Park</h2>
           <ul class="park-subnav__list">
             <li class="park-subnav__item">
-              <a href="#plan-your-visit">
+              <a href="index.html">
                 <span>Plan Your Visit</span>
                 <svg class="icon" aria-hidden="true" focusable="false">
                   <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
@@ -184,7 +184,7 @@
               </a>
             </li>
             <li class="park-subnav__item">
-              <a href="#learn-and-explore">
+              <a href="index.html#learn-and-explore">
                 <span>Learn &amp; Explore</span>
                 <svg class="icon" aria-hidden="true" focusable="false">
                   <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
@@ -192,7 +192,7 @@
               </a>
             </li>
             <li class="park-subnav__item">
-              <a href="#places-to-go">
+              <a href="index.html#places-to-go">
                 <span>Places to Go</span>
                 <svg class="icon" aria-hidden="true" focusable="false">
                   <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
@@ -200,7 +200,7 @@
               </a>
             </li>
             <li class="park-subnav__item">
-              <a href="#things-to-do">
+              <a href="index.html#things-to-do">
                 <span>Things to Do</span>
                 <svg class="icon" aria-hidden="true" focusable="false">
                   <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
@@ -208,7 +208,7 @@
               </a>
             </li>
             <li class="park-subnav__item">
-              <a href="#park-history">
+              <a href="index.html#park-history">
                 <span>History &amp; Culture</span>
                 <svg class="icon" aria-hidden="true" focusable="false">
                   <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
@@ -220,8 +220,36 @@
       </section>
     </header>
     <main id="main">
-      <section class="intro" aria-label="Park introduction"></section>
-      <section class="info" aria-label="Park visitor information"></section>
+      <section
+        id="park-alerts"
+        class="alerts"
+        aria-label="Current park alerts"
+      >
+        <div class="section-header">
+          <h2>Alerts</h2>
+        </div>
+        <ul class="alerts__list" data-element="alerts-list"></ul>
+      </section>
+      <section
+        id="visitor-services"
+        class="visitor-services"
+        aria-label="Visitor services"
+      >
+        <div class="section-header">
+          <h2>Visitor Services</h2>
+        </div>
+        <div class="accordion-group" data-element="visitor-centers"></div>
+      </section>
+      <section
+        id="park-activities"
+        class="activities"
+        aria-label="Activities available at the park"
+      >
+        <div class="section-header">
+          <h2>Activities</h2>
+        </div>
+        <div class="accordion-group" data-element="activities"></div>
+      </section>
     </main>
     <footer id="park-footer" class="park-footer"></footer>
   </body>
