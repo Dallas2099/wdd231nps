@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animation Practice</title>
+    <link rel="stylesheet" href="anim.css" />
+  </head>
+  <body>
+    <main class="content" aria-live="polite">
+      <header>
+        <h1>Animation Practice</h1>
+        <p>
+          Hover, watch the movement, then click the toggle button to show or hide
+          the blue panel.
+        </p>
+      </header>
+      <div class="red">Hover me</div>
+      <div class="yellow" aria-hidden="true"></div>
+      <button class="green" type="button" aria-expanded="false" aria-controls="blue-panel">
+        Toggle
+      </button>
+      <div class="blue" id="blue-panel" role="region" aria-label="Animated panel"></div>
+    </main>
+    <script>
+      const toggleButton = document.querySelector(".green");
+      const bluePanel = document.querySelector(".blue");
+
+      // Toggle visibility class and keep the button's ARIA state in sync.
+      toggleButton.addEventListener("click", () => {
+        const isVisible = bluePanel.classList.toggle("is-visible");
+        toggleButton.setAttribute("aria-expanded", String(isVisible));
+      });
+    </script>
+  </body>
+</html>
