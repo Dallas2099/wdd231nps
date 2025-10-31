@@ -75,15 +75,26 @@
             </a>
             <button
               id="global-nav-toggle"
-              class="global-header__menu"
+              class="global-header__menu global-nav__toggle"
               type="button"
               aria-expanded="false"
               aria-controls="global-nav"
+              aria-label="Open Menu"
             >
-              <svg class="icon" aria-hidden="true" focusable="false">
-                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-              </svg>
-              Menu
+              <span class="global-nav__toggle--open">
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+                </svg>
+                <span class="visually-hidden">Open</span>
+                Menu
+              </span>
+              <span class="global-nav__toggle--close">
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use xlink:href="/images/sprite.symbol.svg#close"></use>
+                </svg>
+                <span class="visually-hidden">Close</span>
+                Close
+              </span>
             </button>
           </div>
         </div>

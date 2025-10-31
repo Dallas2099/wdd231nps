@@ -4,6 +4,31 @@ import { getInfoLinks, getParkData } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import { mediaCardTemplate } from "./templates.mjs";
 
+function enableNavigation() {
+  const menuButton = document.querySelector("#global-nav-toggle");
+  const nav = document.querySelector(".global-nav");
+  if (!menuButton || !nav) return;
+
+  menuButton.classList.add("global-nav__toggle");
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open Menu");
+
+  nav.classList.remove("global-nav--open");
+
+  menuButton.addEventListener("click", (event) => {
+    const button =
+      event.target.tagName === "BUTTON"
+        ? event.target
+        : event.target.closest("button");
+    if (!button || button !== menuButton) return;
+
+    nav.classList.toggle("global-nav--open");
+    const isOpen = nav.classList.contains("global-nav--open");
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close Menu" : "Open Menu");
+  });
+}
+
 function setParkIntro(data) {
   const introEl = document.querySelector(".intro");
   if (!introEl) return;
@@ -45,4 +70,9 @@ async function init() {
   }
 }
 
-init();
+document.addEventListener("DOMContentLoaded", () => {
+  enableNavigation();
+  init();
+});
+
+export { enableNavigation };

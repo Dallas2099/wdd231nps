@@ -94,6 +94,81 @@
   color: var(--bs-white);
 }
 
+.global-nav {
+  background-color: var(--bs-black);
+  padding: 0 1.5rem 0;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 250ms ease, visibility 0s linear 250ms;
+}
+
+.global-nav--open {
+  visibility: visible;
+  max-height: 60vh;
+  transition: max-height 250ms ease, visibility 0s;
+  padding-bottom: 1rem;
+}
+
+.global-nav__section-heading {
+  margin: 0;
+  padding: 1rem 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.global-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.global-nav__item > a {
+  color: var(--bs-white);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.global-nav__toggle {
+  position: relative;
+}
+
+.global-nav__toggle > .global-nav__toggle--open,
+.global-nav__toggle > .global-nav__toggle--close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.global-nav__toggle > .global-nav__toggle--close {
+  display: none;
+}
+
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--open {
+  display: none;
+}
+
+.global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--close {
+  display: inline-flex;
+}
+
+.global-nav__toggle:focus-visible,
+.global-nav a:focus-visible,
+.global-nav button:focus-visible {
+  outline: 2px solid var(--bs-light-green);
+  outline-offset: 2px;
+}
+
 .park-header {
   background-color: var(--bs-black);
   color: var(--bs-white);
@@ -257,6 +332,25 @@
 
 .park-subnav__item a:hover {
   border-color: var(--bs-black);
+}
+
+@media (min-width: 960px) {
+  .global-nav {
+    max-height: none;
+    visibility: visible;
+    transition: none;
+    padding-bottom: 1.25rem;
+  }
+
+  .global-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .global-nav__split-button__toggle {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
