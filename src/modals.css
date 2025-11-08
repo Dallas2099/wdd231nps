@@ -1,0 +1,65 @@
+/* Full-screen overlay is hidden until the `open` class is applied */
+.modal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center; /* Centers the modal panel vertically */
+  justify-content: center; /* Centers the modal panel horizontally */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent backdrop */
+  z-index: 1000; /* Ensure the modal sits on top of other content */
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Utility class that reveals the modal overlay */
+.modal.open {
+  display: flex;
+}
+
+/* Modal panel styling */
+.modal-content {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Large close button stays in the top-right corner of the panel */
+.close-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Keep form controls easy to use and visually separated */
+.modal-content input,
+.modal-content button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background: #1f73b7;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button:hover,
+.modal-content button:focus {
+  background: #175a8d;
+}
