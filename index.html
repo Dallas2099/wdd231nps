@@ -2,44 +2,251 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SomeStore – Featured Products</title>
-    <link rel="stylesheet" href="params.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>NPS Global Navigation Demo</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <a href="index.html" class="logo" aria-label="SomeStore Home">
-        <div class="logoImg" aria-hidden="true"></div>
-        <h1>SomeStore</h1>
-      </a>
+    <header class="global-header">
+      <div class="global-header__brand">
+        <a class="global-header__logo" href="#" aria-label="National Park Service home">
+          <span class="global-header__logo-mark" aria-hidden="true">NPS</span>
+          <span class="global-header__logo-text">National Park Service</span>
+        </a>
+      </div>
+      <button
+        class="global-header__menu global-nav__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="globalNav"
+      >
+        <span class="visually-hidden">Toggle global navigation</span>
+        <span class="global-header__menu-label">Global Menu</span>
+        <svg
+          class="icon"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <title>Toggle</title>
+          <path
+            d="M2 4h12M2 8h12M2 12h12"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
     </header>
 
     <main>
-      <h2>Featured Products</h2>
+      <nav class="global-nav" id="globalNav" aria-label="Global">
+        <section class="global-nav__section global-nav__section--park">
+          <h2 class="global-nav__section-heading">Explore This Park</h2>
+          <ul class="global-nav__list">
+            <li class="global-nav__item">
+              <div class="global-nav__split-button">
+                <a class="global-nav__parent" href="#plan-your-visit">
+                  Plan Your Visit
+                </a>
+                <button
+                  class="global-nav__split-button__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="plan-your-visit-menu"
+                >
+                  <span class="visually-hidden">Toggle submenu for Plan Your Visit</span>
+                  <svg
+                    class="icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                  >
+                    <title>Toggle</title>
+                    <path
+                      d="M4 6l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul
+                id="plan-your-visit-menu"
+                class="global-nav__submenu"
+                hidden
+                aria-label="Plan Your Visit submenu"
+              ></ul>
+            </li>
+          </ul>
+        </section>
 
-      <ul class="product-list" aria-label="Featured product links">
-        <li><a href="product.html?productId=1">Product 1</a></li>
-        <li><a href="product.html?productId=2">Product 2</a></li>
-        <li><a href="product.html?productId=3">Product 3</a></li>
-      </ul>
+        <section class="global-nav__section global-nav__section--explore">
+          <h2 class="global-nav__section-heading">
+            Explore the National Park Service
+          </h2>
 
-      <section class="cards" aria-label="Featured product cards">
-        <a class="card" href="product.html?productId=1">
-          <img src="https://placehold.co/300" alt="Product 1 image" />
-          <h3>Product 1</h3>
-          <p>$3.00</p>
-        </a>
-        <a class="card" href="product.html?productId=2">
-          <img src="https://placehold.co/300" alt="Product 2 image" />
-          <h3>Product 2</h3>
-          <p>$5.00</p>
-        </a>
-        <a class="card" href="product.html?productId=3">
-          <img src="https://placehold.co/300" alt="Product 3 image" />
-          <h3>Product 3</h3>
-          <p>$1.00</p>
-        </a>
-      </section>
+          <ul class="global-nav__list">
+            <li class="global-nav__item">
+              <div class="global-nav__split-button">
+                <a class="global-nav__parent" href="#">About Us</a>
+                <button
+                  class="global-nav__split-button__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="explore-about-us"
+                >
+                  <span class="visually-hidden">Toggle submenu for About Us</span>
+                  <svg
+                    class="icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                  >
+                    <title>Toggle</title>
+                    <path
+                      d="M4 6l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul id="explore-about-us" class="global-nav__submenu" hidden>
+                <li><a href="#">Our Mission</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </li>
+            <li class="global-nav__item">
+              <div class="global-nav__split-button">
+                <a class="global-nav__parent" href="#">Discover History</a>
+                <button
+                  class="global-nav__split-button__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="explore-discover-history"
+                >
+                  <span class="visually-hidden"
+                    >Toggle submenu for Discover History</span
+                  >
+                  <svg
+                    class="icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                  >
+                    <title>Toggle</title>
+                    <path
+                      d="M4 6l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul
+                id="explore-discover-history"
+                class="global-nav__submenu"
+                hidden
+              >
+                <li><a href="#">American Heritage</a></li>
+                <li><a href="#">Archeology</a></li>
+                <li><a href="#">Museums</a></li>
+                <li><a href="#">Preservation</a></li>
+              </ul>
+            </li>
+            <li class="global-nav__item">
+              <div class="global-nav__split-button">
+                <a class="global-nav__parent" href="#">Explore Nature</a>
+                <button
+                  class="global-nav__split-button__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="explore-nature"
+                >
+                  <span class="visually-hidden"
+                    >Toggle submenu for Explore Nature</span
+                  >
+                  <svg
+                    class="icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                  >
+                    <title>Toggle</title>
+                    <path
+                      d="M4 6l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul id="explore-nature" class="global-nav__submenu" hidden>
+                <li><a href="#">Wildlife</a></li>
+                <li><a href="#">Plants</a></li>
+                <li><a href="#">Geology</a></li>
+                <li><a href="#">Water</a></li>
+              </ul>
+            </li>
+            <li class="global-nav__item">
+              <div class="global-nav__split-button">
+                <a class="global-nav__parent" href="#">Kids</a>
+                <button
+                  class="global-nav__split-button__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="explore-kids"
+                >
+                  <span class="visually-hidden">Toggle submenu for Kids</span>
+                  <svg
+                    class="icon"
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 16 16"
+                  >
+                    <title>Toggle</title>
+                    <path
+                      d="M4 6l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul id="explore-kids" class="global-nav__submenu" hidden>
+                <li><a href="#">Junior Ranger</a></li>
+                <li><a href="#">Education Resources</a></li>
+                <li><a href="#">Youth Programs</a></li>
+                <li><a href="#">Field Trips</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
     </main>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
